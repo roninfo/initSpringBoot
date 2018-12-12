@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController // adiciona o responsebody em todos objetos
@@ -61,12 +62,12 @@ public class StudentEndpoint {
     //@RequestMapping(method = RequestMethod.POST, path = "/salvar")
     @PostMapping
     @Transactional
-    public ResponseEntity<?> save(@RequestBody Student student) {
+    public ResponseEntity<?> save(@Valid @RequestBody Student student) {
 
         Student studentnew = studentDao.save(student);
-        studentDao.save(student);
 
-        if (true) {
+        if (false) {
+            studentDao.save(student);
             throw new ResourceNotFoundException("Teste de transação");
         }
 
