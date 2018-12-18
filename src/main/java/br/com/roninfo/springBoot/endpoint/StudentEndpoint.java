@@ -4,6 +4,7 @@ import br.com.roninfo.springBoot.error.ResourceNotFoundException;
 import br.com.roninfo.springBoot.model.Student;
 import br.com.roninfo.springBoot.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,9 +26,9 @@ public class StudentEndpoint {
 
     //@RequestMapping(method = RequestMethod.GET)
     @GetMapping
-    public ResponseEntity<?> listAll() {
+    public ResponseEntity<?> listAll(Pageable pageable) {
        // System.out.println("Data: " + dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
-        return new ResponseEntity<>(studentDao.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(studentDao.findAll(pageable), HttpStatus.OK);
     }
 
     //@RequestMapping(method = RequestMethod.GET, path = "/{id}")
