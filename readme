@@ -1,4 +1,8 @@
 
 # busca via sort
-http://localhost:8080/students?sort=id,desc
-http://localhost:8080/students?sort=id,desc&sort=matricula,asc
+http://localhost:8080/v1/protected/students?sort=id,desc
+http://localhost:8080/v1/protected/students?sort=id,desc&sort=matricula,asc
+
+# busca com filtro
+http://localhost:8080/v1/protected/students?page=5
+http://localhost:8080/v1/protected/students?page=5&size=5
