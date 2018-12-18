@@ -1,0 +1,4 @@
+
+# busca via sort
+http://localhost:8080/students?sort=id,desc
+http://localhost:8080/students?sort=id,desc&sort=matricula,asc
