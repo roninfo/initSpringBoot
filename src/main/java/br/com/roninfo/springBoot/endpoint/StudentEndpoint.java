@@ -39,6 +39,12 @@ public class StudentEndpoint {
         return new ResponseEntity<>(studentDao.findAll(pageable), HttpStatus.OK);
     }
 
+    @GetMapping("protected/students/all")
+    public ResponseEntity<?> listAllWithoutPage() {
+        // System.out.println("Data: " + dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
+        return new ResponseEntity<>(studentDao.findAll(), HttpStatus.OK);
+    }
+
     //@RequestMapping(method = RequestMethod.GET, path = "/{id}")
     @GetMapping(path = {"protected/students/{id}"})
     public ResponseEntity<?> getStudentById(@PathVariable("id") Long id, @AuthenticationPrincipal UserDetails userDetails) {

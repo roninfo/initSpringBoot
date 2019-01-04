@@ -49,4 +49,15 @@ public class Student extends AbstractEntity {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id='" + getId() + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", matricula=" + matricula +
+                ", sexo='" + sexo + '\'' +
+                '}';
+    }
 }
