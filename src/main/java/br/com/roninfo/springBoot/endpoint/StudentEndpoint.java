@@ -27,8 +27,13 @@ public class StudentEndpoint {
 
     private final StudentRepository studentDao;
 
+    @GetMapping
+    public String ping() {
+        return "Service ok!";
+    }
+
     //@RequestMapping(method = RequestMethod.GET)
-    @GetMapping(path = {"protected/students"})
+    @GetMapping("protected/students")
     public ResponseEntity<?> listAll(Pageable pageable) {
         // System.out.println("Data: " + dateUtil.formatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
         return new ResponseEntity<>(studentDao.findAll(pageable), HttpStatus.OK);
@@ -65,7 +70,8 @@ public class StudentEndpoint {
 
         Student studentnew = studentDao.save(student);
 
-        if (false) {
+        boolean forceError = false;
+        if (forceError) {
             studentDao.save(student);
             throw new ResourceNotFoundException("Teste de transação");
         }
