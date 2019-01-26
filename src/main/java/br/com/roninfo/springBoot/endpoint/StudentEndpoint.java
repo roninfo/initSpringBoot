@@ -90,12 +90,14 @@ public class StudentEndpoint {
     @DeleteMapping(path = "admin/students/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         studentDao.deleteById(id);
+        System.out.println("$$$delete$$$ ever return OK!!!!");
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping(path = {"admin/students"})
     public ResponseEntity<Student> update(@RequestBody Student student) {
         studentDao.save(student);
+        System.out.println("$$$update$$$ ever return OK!!!!");
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

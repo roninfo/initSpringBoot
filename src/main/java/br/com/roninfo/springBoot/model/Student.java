@@ -7,6 +7,14 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 public class Student extends AbstractEntity {
 
+    public Student() {
+    }
+
+    public Student(@NotEmpty(message = "The field name is required.") String name, @NotEmpty(message = "The field email is required") @Email String email) {
+        this.name = name;
+        this.email = email;
+    }
+
     @NotEmpty(message = "The field name is required.")
     private String name;
 
